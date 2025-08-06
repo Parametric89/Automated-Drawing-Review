@@ -1,0 +1,28 @@
+# Ignore datasets, which are very large and handled by cloud storage
+datasets/
+Archive/
+Rhino/
+
+# Ignore model training runs and results
+runs/
+results/
+
+# Ignore model files, which can be large and are outputs of the code
+models/
+*.pt
+
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Ignore temporary files and visualizations
+*.cache
+pending/
+tile_visualizations/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
