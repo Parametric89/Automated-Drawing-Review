@@ -1,0 +1,31 @@
+# === single source of truth for tiling & de-dup ===
+tile_size: 1536
+overlap: 0.30          # 30%
+keep_inner_frac: 0.00  # 0.0 = accept all tile borders (we dedup later)
+
+# training-time tiler only
+min_panel_frac: 0.20   # retile threshold (largest-object area fraction of tile)
+retile_if_below: true
+pre_scale: 1.0
+
+# inference-time post-merge
+merge_mode: minmax     # [minmax | nms | iou_avg]
+merge_iou: 0.70
+
+# core YOLO predict knobs (inference)
+conf: 0.25
+iou: 0.60
+max_det: 3000
+
+# shape filters (kept very light; identical across scripts)
+min_area_ratio: 0.08         # drop boxes < median_area * this
+min_short_side_ratio: 0.30   # drop boxes with short side < median_short * this
+ar_min: 0.90
+ar_max: 3.50
+
+# refinement (inference only; off by default -> set true if you want)
+refine:
+  enabled: false
+  imgsz: 1536
+  margin: 0.12
+  iou: 0.50

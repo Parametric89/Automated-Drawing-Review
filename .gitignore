@@ -1,7 +1,21 @@
 # Ignore datasets, which are very large and handled by cloud storage
 datasets/
 Archive/
+archive/
 Rhino/
+backup/
+inference/
+out/
+overlays/
+pred_*/
+debug_*/
+Dataset Diagnosis/
+notes/
+reports/
+*.xlsx
+*.csv
+{ln}')
+2)
 
 # Ignore model training runs and results
 runs/
@@ -26,3 +40,5 @@ tile_visualizations/
 # Ignore IDE-specific files
 .vscode/
 .idea/
+.hub_prefs.json
+.last_dataset_base.txt

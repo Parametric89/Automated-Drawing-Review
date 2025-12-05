@@ -1,0 +1,49 @@
+# === Augmentation Configuration ===
+# Single source of truth for augmentation parameters
+
+# Core augmentation settings
+target_size: 1280
+augs_per_image: 2
+splits: "train,val,test"
+out_folder: "augmented1k"
+
+# Geometric transformations
+rotation_deg: 2.0          # ±2 degrees rotation
+scale_low: 0.9              # 90% minimum scale
+scale_high: 1.1             # 110% maximum scale  
+translation_frac: 0.03      # 3% maximum translation
+pad_margin: 96              # Padding around images
+
+# Class handling
+tag_class_id: 1             # Class ID for bbox-only tags
+
+# Quality settings
+jpeg_quality: 92            # JPEG compression quality
+opencv_num_threads: 0       # OpenCV threading (0 = auto)
+
+# Processing options
+keep_existing: false        # Clear output folder before processing
+max_images: null            # Limit images per split (null = no limit)
+
+# Presets for different scenarios
+presets:
+  conservative:
+    rotation_deg: 1.0
+    scale_low: 0.95
+    scale_high: 1.05
+    translation_frac: 0.02
+    augs_per_image: 1
+    
+  aggressive:
+    rotation_deg: 5.0
+    scale_low: 0.8
+    scale_high: 1.2
+    translation_frac: 0.05
+    augs_per_image: 4
+    
+  balanced:
+    rotation_deg: 2.0
+    scale_low: 0.9
+    scale_high: 1.1
+    translation_frac: 0.03
+    augs_per_image: 2
