@@ -8,7 +8,9 @@ inference/
 out/
 overlays/
 pred_*/
+preds_*/
 debug_*/
+crop image/
 Dataset Diagnosis/
 notes/
 reports/
